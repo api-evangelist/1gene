@@ -1,0 +1,226 @@
+generated: '2026-09-05'
+method: probed
+source: http://www.1gene.com.cn/
+name: 1GENE well-known + contract discovery probe
+description: >-
+  Negative probe record for 1GENE (壹基因 / Hangzhou He-Yi Gene Technology Co., Ltd.), a
+  Hangzhou non-invasive cancer early-screening diagnostics company. The company's own
+  registrable domain 1gene.com.cn is still registered and its mail is live, but the web
+  origin is no longer configured: www.1gene.com.cn answers HTTP 200 over plain HTTP with
+  the stock Nginx Proxy Manager "Default Site" page ("You're trying to access a host that
+  isn't set up yet", Last-Modified 2026-06-03), HTTPS on the same host aborts the TLS
+  handshake with unrecognized_name, and the apex plus the m./admin. subdomains time out
+  from a US vantage point. Every /.well-known/ path and every contract-discovery path on
+  the reachable host returns a real 404 from that placeholder. No WellKnown, SecurityTxt,
+  AgentCard, LLMsTxt, MCPServer or OpenAPI pointer is emitted from this probe, and none
+  should be emitted from it in a later round.
+
+host_status:
+  registrable_domain: 1gene.com.cn
+  controlled_by_provider: true
+  disposition: origin-not-configured
+  registrar: 阿里云计算有限公司（万网） / Alibaba Cloud (HiChina)
+  registrant_organization: 杭州尚壹生物科技有限公司 (Hangzhou Shangyi Biotechnology Co., Ltd.)
+  domain_created: '2014-04-06'
+  domain_expires: '2027-04-06'
+  domain_status: ok
+  nameservers:
+  - dns31.hichina.com
+  - dns32.hichina.com
+  mail_active: true
+  mx:
+  - hzmx01.mxmail.netease.com
+  - hzmx02.mxmail.netease.com
+  note: >-
+    Registration predates and outlives the outage (created 2014-04-06, expires 2027-04-06)
+    and NetEase mail plus an SPF record are still published, so the domain is held by the
+    company group rather than parked by a third party. The web origin behind it is simply
+    not configured — this is a serving state, not a domain loss, and is deliberately NOT
+    wired as a Website pointer while it serves a placeholder.
+
+soft_200_catch_all: false
+soft_200_note: >-
+  The reachable host does not answer 200 for everything. The root returns the 1,033-byte
+  Nginx Proxy Manager default page; every other probed path returns a genuine 404 with a
+  552-byte HTML error body. Neither is a document.
+
+hosts:
+- host: www.1gene.com.cn
+  scheme: http
+  note: >-
+    HTTPS is not serviceable — the origin aborts the TLS handshake with
+    unrecognized_name (alert 112) for this SNI, so all probes were run over plain HTTP.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+    note: A2A 1.0 canonical path. 404, not an HTML shell. No AgentCard pointer emitted.
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+    note: Legacy pre-0.3 A2A path. 404. No AgentCard pointer emitted.
+- host: 1gene.com.cn
+  scheme: http
+  unreachable: true
+  note: >-
+    Apex A record 114.55.152.1 (Alibaba Cloud) accepts no connection — curl times out at
+    30s on both 80 and 443. Recorded as status 0 (no response), never as a 4xx/5xx.
+  documents:
+  - path: /
+    status: 0
+    file: null
+- host: m.1gene.com.cn
+  scheme: http
+  unreachable: true
+  note: Mobile/report host, A 121.196.131.75. Connection times out from the probe vantage.
+  documents:
+  - path: /
+    status: 0
+    file: null
+- host: admin.1gene.com.cn
+  scheme: http
+  unreachable: true
+  note: Internal console host, A 121.199.69.226. Connection times out from the probe vantage.
+  documents:
+  - path: /
+    status: 0
+    file: null
+- host: mall.1gene.com.cn
+  scheme: http
+  note: Storefront host, A 120.26.129.84. Answers on port 80 with an empty-bodied 404; port 443 refuses.
+  documents:
+  - path: /
+    status: 404
+    file: null
+
+contract_discovery:
+  openapi:
+  - url: http://www.1gene.com.cn/openapi.json
+    status: 404
+    parses_as_openapi: false
+    result: miss
+  - url: http://www.1gene.com.cn/swagger.json
+    status: 404
+    parses_as_openapi: false
+    result: miss
+  - url: http://www.1gene.com.cn/api-docs
+    status: 404
+    parses_as_openapi: false
+    result: miss
+  graphql: []
+  mcp: []
+  a2a_agent_card:
+  - url: http://www.1gene.com.cn/.well-known/agent-card.json
+    status: 404
+    result: miss
+  - url: http://www.1gene.com.cn/.well-known/agent.json
+    status: 404
+    result: miss
+  ogc: []
+  ogc_note: >-
+    Not probed. Nothing in the company's product line, prose or DNS points at a geospatial
+    surface, and the pipeline forbids blind OGC path patterns.
+  wsdl: []
+  wsdl_note: No SOAP/enterprise integration surface is referenced anywhere in the public record.
+  api_hosts_resolved:
+  - host: api.1gene.com.cn
+    dns: NXDOMAIN
+    status: null
+  - host: open.1gene.com.cn
+    dns: NXDOMAIN
+    status: null
+  - host: developer.1gene.com.cn
+    dns: NXDOMAIN
+    status: null
+  - host: doc.1gene.com.cn
+    dns: NXDOMAIN
+    status: null
+  - host: docs.1gene.com.cn
+    dns: NXDOMAIN
+    status: null
+  - host: portal.1gene.com.cn
+    dns: NXDOMAIN
+    status: null
+  - host: app.1gene.com.cn
+    dns: NXDOMAIN
+    status: null
+  - host: service.1gene.com.cn
+    dns: NXDOMAIN
+    status: null
+  - host: test.1gene.com.cn
+    dns: NXDOMAIN
+    status: null
+
+llms_txt:
+  url: http://www.1gene.com.cn/llms.txt
+  status: 404
+  is_real_llms_txt: false
+  note: No llms.txt is served. None was generated on the company's behalf; there is no API surface to describe.
+
+robots_and_sitemap:
+- url: http://www.1gene.com.cn/robots.txt
+  status: 404
+- url: http://www.1gene.com.cn/sitemap.xml
+  status: 404
+
+other_surfaces:
+- what: GitHub organization
+  url: https://api.github.com/orgs/1gene
+  status: 404
+  result: miss
+- what: GitHub organization
+  url: https://api.github.com/orgs/1genebio
+  status: 404
+  result: miss
+- what: GitHub organization
+  url: https://api.github.com/orgs/he1gene
+  status: 404
+  result: miss
+  note: >-
+    github.com/1gene exists but is an unrelated individual USER account, not a company
+    organization. No first-party repositories were found.
+- what: npm registry search "1gene"
+  url: https://registry.npmjs.org/-/v1/search?text=1gene
+  status: 200
+  result: miss
+  note: total=0. No first-party or third-party package exists.
+- what: PyPI project "1gene"
+  url: https://pypi.org/pypi/1gene/json
+  status: 404
+  result: miss
+- what: Parked look-alike domains (NOT the company)
+  url: https://1gene.com/
+  status: 200
+  result: miss
+  note: >-
+    1gene.com, 1gene.cn, yijiyin.com and yijiyin.cn are all third-party parking/for-sale
+    landers (1gene.com redirects to /lander; 1gene.cn CNAMEs to show.17ex.com). None of
+    them is 1GENE's web presence and none must ever be wired as a Website pointer.
+- what: EquityZen secondary-market listing (the harvest source)
+  url: https://equityzen.com/company/1gene
+  status: 200
+  result: venue
+  note: >-
+    A trading-venue share listing, not a company website (roadmap#56). Retained as
+    x-harvest-source-url in apis.yml, never as type Website.
+
+conclusion: >-
+  1GENE has no API surface, no developer program, no machine-readable contract and no
+  first-party packages, and the company's own web origin is currently unconfigured. This
+  is a negative measurement, not a discovery gap: every probe above returned a real
+  status. A future round should re-read host_status before assuming the origin is live.

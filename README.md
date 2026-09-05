@@ -64,5 +64,18 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-1GENE is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://equityzen.com/company/1gene
+1GENE (壹基因) is the brand of Hangzhou He-Yi Gene Technology Co., Ltd., a Chinese molecular-diagnostics
+company founded in Hangzhou's Binjiang district in May 2014. It develops non-invasive early cancer
+screening tests built on tumour DNA methylation markers and liquid- and stool-based biopsy chemistry —
+colorectal (常壹宁), gastric (卫壹宁, 优壹宁), and liver and oesophageal screening in development.
+
+**There is no API surface to profile.** 1GENE sells a clinical test, not software. No developer program,
+public API, SDK, or machine-readable specification is published anywhere, and as of 2026-09-05 the
+company's own web origin at `www.1gene.com.cn` is unconfigured — it answers HTTP 200 with the stock
+Nginx Proxy Manager "Default Site" placeholder, HTTPS aborts the TLS handshake with `unrecognized_name`,
+and every `/.well-known/` and contract-discovery path on it returns a real 404. The full negative
+measurement is recorded in [`well-known/1gene-well-known.yml`](well-known/1gene-well-known.yml), and the
+domain's TLS/DNS posture in [`security/1gene-domain-security.yml`](security/1gene-domain-security.yml).
+
+Harvest source: <https://equityzen.com/company/1gene> (a secondary-market share listing, not a company
+website — it is deliberately not wired as a `Website` pointer).

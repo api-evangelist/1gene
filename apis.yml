@@ -1,17 +1,80 @@
 aid: 1gene
 name: 1GENE
-description: '1GENE is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  1GENE (壹基因) is the brand of Hangzhou He-Yi Gene Technology Co., Ltd., a Chinese
+  molecular-diagnostics company founded in Hangzhou's Binjiang district in May 2014 by
+  chairman and chief executive Junyi Wang. It develops non-invasive early cancer screening
+  tests built on proprietary tumour DNA methylation markers and liquid- and stool-based
+  biopsy chemistry, sold under the mission of "letting everyone stay away from cancer
+  earlier". Its product pipeline covers colorectal cancer screening (常壹宁), gastric
+  pathogen screening and medication guidance (优壹宁), gastric cancer screening (卫壹宁),
+  and liver and oesophageal cancer screening in development; company scientists co-authored
+  a validated stool-DNA biomarker panel for colorectal neoplasms in the Journal of Cancer
+  Research and Clinical Oncology. The company raised an angel round in 2014, a RMB 49.5M
+  Series A in 2015 and a Series B of several tens of millions of RMB from listed
+  pharmaceutical maker Chengda Pharmaceuticals in December 2022, and its shares are listed
+  for secondary-market trading on EquityZen. 1GENE sells a clinical test, not software: it
+  publishes no developer program, no public API, no SDK and no machine-readable
+  specification, and as of this profile its own web origin at www.1gene.com.cn is
+  unconfigured and serves a placeholder page.
 url: https://raw.githubusercontent.com/api-evangelist/1gene/refs/heads/main/apis.yml
+x-harvest-source-url: https://equityzen.com/company/1gene
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
-x-tier-reason: harvest
-specificationVersion: '0.20'
+x-tier-reason: no-api-surface
+x-legal-name: 杭州和壹基因科技有限公司 (Hangzhou He-Yi Gene Technology Co., Ltd.)
+x-founded: '2014-05'
+x-headquarters: Binjiang District, Hangzhou, Zhejiang, China
+x-domain-status: origin-not-configured
+x-domain-note: >-
+  The company's registrable domain 1gene.com.cn is still registered through Alibaba Cloud
+  (created 2014-04-06, expires 2027-04-06, status ok) and still carries live NetEase MX and
+  SPF records, so the domain is held by the company group. The web origin behind it is not
+  configured: www.1gene.com.cn answers HTTP 200 with the stock Nginx Proxy Manager "Default
+  Site" placeholder (Last-Modified 2026-06-03), HTTPS on that host aborts the TLS handshake
+  with unrecognized_name, and the apex plus the m./admin. subdomains do not answer at all.
+  Every /.well-known/ and contract-discovery path on the reachable host returns a real 404.
+  Because a placeholder is not a web presence, no type Website pointer is wired — the same
+  posture applied to other harvest records with dead origins (roadmap#56). The EquityZen
+  page that surfaced this company is a trading venue and is recorded as x-harvest-source-url,
+  never as a Website. See well-known/1gene-well-known.yml for the full probe record.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Clinical diagnostics service — no callable API surface on record
+  confidence: medium
+  source:
+  - well-known/1gene-well-known.yml
+  generated: '2026-09-05'
+  method: derived
+specificationVersion: '0.23'
 created: '2026-09-05'
 modified: '2026-09-05'
 tags:
 - Company
+- Health
+- Healthcare
+- Biotechnology
+- Genomics
+- Diagnostics
+- Cancer Screening
+- Precision Medicine
+- Life Sciences
+- China
+tags_raw:
+- Company
+- Health
+- Healthcare
+- Biotechnology
+- Genomics
+- Diagnostics
+- Cancer Screening
+- Precision Medicine
+- Life Sciences
+- China
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +82,34 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
-- type: Website
-  url: https://equityzen.com/company/1gene
+- type: DomainSecurity
+  url: security/1gene-domain-security.yml
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    1GENE sells non-invasive cancer early-screening lab tests to consumers and clinics and
+    publishes no developer program in either Chinese- or English-language sources; its own
+    www.1gene.com.cn now answers HTTP 200 with an unconfigured Nginx Proxy Manager "Default
+    Site" placeholder and every /.well-known/ and spec path on it returns a real 404, with
+    no api./open./developer./docs. subdomain resolving and no GitHub organization or
+    published package anywhere.
+  evidence:
+  - url: http://www.1gene.com.cn/
+    status: 200
+  - url: http://www.1gene.com.cn/openapi.json
+    status: 404
+  - url: http://www.1gene.com.cn/.well-known/agent-card.json
+    status: 404
+  - url: http://www.1gene.com.cn/llms.txt
+    status: 404
+  - url: https://api.github.com/orgs/1gene
+    status: 404
+  - url: https://pypi.org/pypi/1gene/json
+    status: 404
+  checked: '2026-09-05'
+x-enrichment:
+  date: '2026-09-05'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v3

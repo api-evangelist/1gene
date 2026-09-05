@@ -1,0 +1,91 @@
+generated: '2026-09-05'
+method: probed
+source: 1gene.com.cn (dig + openssl s_client + curl, 2026-09-05)
+name: 1GENE domain security posture
+description: >-
+  TLS/HSTS/DNS posture for the registrable domain 1GENE actually controls. Probed by hand
+  rather than by probe-domain-security.py, because that helper reads hosts from a Website
+  or Portal pointer in apis.yml and 1GENE deliberately carries neither — its web origin
+  currently serves an unconfigured placeholder (see well-known/1gene-well-known.yml).
+  Absence of a record is valid data, not a failed probe.
+
+registrable_domain: 1gene.com.cn
+
+registration:
+  registrar: 阿里云计算有限公司（万网） / Alibaba Cloud (HiChina)
+  registrant_organization: 杭州尚壹生物科技有限公司 (Hangzhou Shangyi Biotechnology Co., Ltd.)
+  created: '2014-04-06'
+  expires: '2027-04-06'
+  status: ok
+  source: whois.cnnic.cn
+
+hosts:
+- host: www.1gene.com.cn
+  address: 121.199.172.246
+  https: false
+  https_note: >-
+    The origin accepts the TCP connection on 443 but aborts the TLS handshake with
+    unrecognized_name (fatal alert 112) for SNI www.1gene.com.cn — no certificate is
+    provisioned for the hostname. Observed with both LibreSSL 3.3.6 and OpenSSL.
+  tls_version: null
+  cert_expires: null
+  http: true
+  http_status: 200
+  server: openresty
+  hsts: false
+  hsts_max_age: null
+  http_note: >-
+    Plain HTTP returns the 1,033-byte Nginx Proxy Manager "Default Site" placeholder,
+    Last-Modified 2026-06-03. No Strict-Transport-Security header is sent.
+- host: 1gene.com.cn
+  address: 114.55.152.1
+  https: false
+  http: false
+  note: No response on 80 or 443; curl times out at 30s.
+- host: mall.1gene.com.cn
+  address: 120.26.129.84
+  https: false
+  https_note: Port 443 refuses the connection.
+  http: true
+  http_status: 404
+  hsts: false
+- host: m.1gene.com.cn
+  address: 121.196.131.75
+  https: false
+  http: false
+  note: No response on 80 or 443; curl times out.
+- host: admin.1gene.com.cn
+  address: 121.199.69.226
+  https: false
+  http: false
+  note: No response on 80 or 443; curl times out.
+
+dns:
+  dnssec: false
+  dnssec_evidence: 'dig DNSKEY 1gene.com.cn -> empty; dig DS 1gene.com.cn -> empty; whois DNSSEC: unsigned'
+  caa: []
+  caa_present: false
+  spf: v=spf1 include:spf.163.com -all
+  spf_present: true
+  dmarc: null
+  dmarc_present: false
+  dmarc_evidence: dig TXT _dmarc.1gene.com.cn -> empty
+  mx:
+  - 5 hzmx01.mxmail.netease.com
+  - 10 hzmx02.mxmail.netease.com
+  nameservers:
+  - dns31.hichina.com
+  - dns32.hichina.com
+
+summary:
+  https_enforced: false
+  hsts: false
+  dnssec: false
+  caa: false
+  spf: true
+  dmarc: false
+  note: >-
+    Mail is configured with a strict SPF policy (-all) but no DMARC record, and the web
+    tier serves no HTTPS certificate at all. Nothing here is scored against the company's
+    API posture — there is no API — but it is the observable security surface of the
+    domain as of the probe date.
