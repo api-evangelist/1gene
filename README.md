@@ -64,18 +64,38 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-1GENE (壹基因) is the brand of Hangzhou He-Yi Gene Technology Co., Ltd., a Chinese molecular-diagnostics
-company founded in Hangzhou's Binjiang district in May 2014. It develops non-invasive early cancer
-screening tests built on tumour DNA methylation markers and liquid- and stool-based biopsy chemistry —
-colorectal (常壹宁), gastric (卫壹宁, 优壹宁), and liver and oesophageal screening in development.
+1GENE (壹基因) is the brand of Hangzhou He-Yi Gene Technology Co., Ltd., a Chinese molecular-diagnostics company founded in Hangzhou's Binjiang district in May 2014 by chairman and chief executive Junyi Wang. It develops non-invasive early cancer screening tests built on proprietary tumour DNA methylation markers and liquid- and stool-based biopsy chemistry, sold under the mission of "letting everyone stay away from cancer earlier". Its product pipeline covers colorectal cancer screening (常壹宁), gastric pathogen screening and medication guidance (优壹宁), gastric cancer screening (卫壹宁), and liver and oesophageal cancer screening in development; company scientists co-authored a validated stool-DNA biomarker panel for colorectal neoplasms in the Journal of Cancer Research and Clinical Oncology. The company raised an angel round in 2014, a RMB 49.5M Series A in 2015 and a Series B of several tens of millions of RMB from listed pharmaceutical maker Chengda Pharmaceuticals in December 2022, and its shares are listed for secondary-market trading on EquityZen. 1GENE sells a clinical test, not software: it publishes no developer program, no public API, no SDK and no machine-readable specification, and as of this profile its own web origin at www.1gene.com.cn is unconfigured and serves a placeholder page.
 
-**There is no API surface to profile.** 1GENE sells a clinical test, not software. No developer program,
-public API, SDK, or machine-readable specification is published anywhere, and as of 2026-09-05 the
-company's own web origin at `www.1gene.com.cn` is unconfigured — it answers HTTP 200 with the stock
-Nginx Proxy Manager "Default Site" placeholder, HTTPS aborts the TLS handshake with `unrecognized_name`,
-and every `/.well-known/` and contract-discovery path on it returns a real 404. The full negative
-measurement is recorded in [`well-known/1gene-well-known.yml`](well-known/1gene-well-known.yml), and the
-domain's TLS/DNS posture in [`security/1gene-domain-security.yml`](security/1gene-domain-security.yml).
+**Areas:** Company · Health · Healthcare · Biotechnology · Genomics · Diagnostics · Cancer Screening · Precision Medicine · Life Sciences · China
 
-Harvest source: <https://equityzen.com/company/1gene> (a secondary-market share listing, not a company
-website — it is deliberately not wired as a `Website` pointer).
+## 1GENE on APIs.io
+
+Everything profiled for 1GENE is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/1gene/](https://apis.io/providers/1gene/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [1Gene Domain Security](https://apis.io/security/1gene/1gene-domain-security/)
+
+## API Evangelist rating
+
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
+
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for 1GENE: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/1gene/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
