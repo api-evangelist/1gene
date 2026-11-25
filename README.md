@@ -80,7 +80,7 @@ Each property below is a page on APIs.io carrying the machine-readable artifact 
 
 Authentication, trust centre, and vulnerability disclosure.
 
-- [1Gene Domain Security](https://apis.io/security/1gene/1gene-domain-security/)
+- [1GENE Domain Security](https://apis.io/security/1gene/1gene-domain-security/)
 
 ## API Evangelist rating
 
